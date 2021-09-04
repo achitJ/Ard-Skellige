@@ -79,12 +79,10 @@ const isLoggedIn = (req, res, next) => {
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Example protected and unprotected routes
-app.get('/', (req, res) => res.send('Example Home page!'))
 app.get('/failed', (req, res) => res.send('You Failed to log in!'))
 
 // In this route you can see that if the user is logged in u can acess his info in: req.user
-app.get('/good', isLoggedIn, (req, res) => res.send(`Welcome mr ${req.user.displayName}!`))
+app.get('/good', isLoggedIn, (req, res) => res.send(req.user))
 
 // Auth Routes
 app.get('/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
