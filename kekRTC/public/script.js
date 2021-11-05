@@ -30,7 +30,7 @@ navigator.mediaDevices.getUserMedia({ video: true, audio: true })
     //stream our video to the peer server
     socket.on('user-connected', (userId) => {
 
-        connectToNewUser(userId, stream);
+        setTimeout(connectToNewUser, 1000, userId, stream);
 
     });
 
@@ -53,6 +53,8 @@ navigator.mediaDevices.getUserMedia({ video: true, audio: true })
 //
 function connectToNewUser(userId, stream)
 {
+    console.log('user-connected');
+
     const call = myPeer.call(userId, stream);
     const video = document.createElement('video');
 
@@ -69,6 +71,8 @@ function connectToNewUser(userId, stream)
     })
 
     peers[userId] = call;
+
+    console.log("user-connected-done");
 }
 
 

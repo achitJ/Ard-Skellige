@@ -26,6 +26,8 @@ io.on('connection', (socket) => {
 
     socket.on('join-room', (roomId, userId) => {
 
+        console.log(`${userId} joined ${roomId}`);
+
         socket.join(roomId); //join the room through socket
 
         //tell everyone except yourself
