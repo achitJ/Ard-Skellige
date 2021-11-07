@@ -2,6 +2,7 @@ process.on('message', (message) => {
 
     let result = isPrime(message);
     process.send(result);
+    process.exit();
 
 });
 
