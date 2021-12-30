@@ -13,7 +13,7 @@ function isPrime(number) {
     for (let i = 3; i < number; i ++)
     {   
 
-        console.log(i);
+        // console.log(i);
         //it is not a prime break the loop,
         // see how long it took
         if (number % i === 0) 
